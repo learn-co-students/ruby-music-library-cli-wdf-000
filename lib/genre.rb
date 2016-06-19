@@ -13,6 +13,7 @@ class Genre
 
   def initialize(name)
     @name = name
+    self.save
     @songs = []
   end
 

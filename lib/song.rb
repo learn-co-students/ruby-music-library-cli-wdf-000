@@ -40,7 +40,7 @@ class Song
 
   # class method
   def self.new_from_filename(filename)
-    arr = filename.split(/\s*-\s*|.mp3/)
+    arr = filename.split(/\s+-\s+|.mp3/)
 
     artist = Artist.find_or_create_by_name(arr[0])
     genre = Genre.find_or_create_by_name(arr[2])

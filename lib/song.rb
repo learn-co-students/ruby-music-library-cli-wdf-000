@@ -14,7 +14,6 @@ class Song
 
   def initialize(name,artist=nil,genre=nil)
     @name = name
-    self.save
 
     if artist
       self.artist = artist
@@ -46,6 +45,7 @@ class Song
     artist = Artist.find_or_create_by_name(arr[0])
     genre = Genre.find_or_create_by_name(arr[2])
     new_song = self.new(arr[1],artist,genre)
+    new_song.save
     new_song
   end
 end

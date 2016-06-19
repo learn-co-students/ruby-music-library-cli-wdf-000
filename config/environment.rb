@@ -35,9 +35,7 @@ module Concerns
 
   module InstanceMethods
     def save
-      if !self.class.all.include?(self) 
-        self.class.all << self
-      end
+      self.class.all << self
     end
   end
 end

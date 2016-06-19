@@ -17,15 +17,11 @@ class Song
     self.save
 
     if artist
-      @artist = artist
-      artist.add_song(self)
+      self.artist = artist
     end
 
     if genre
-      @genre = genre
-      if !genre.songs.include?(self)
-        genre.songs << self
-      end
+      self.genre = genre
     end
   end
 

@@ -17,13 +17,13 @@ class Song
       @artist = artist
       artist.add_song(self)
     end
+
     if genre
       @genre = genre
       if !genre.songs.include?(self)
         genre.songs << self
       end
     end
-
   end
 
   def artist=(artist)

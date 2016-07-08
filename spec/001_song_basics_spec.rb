@@ -1,3 +1,4 @@
+require 'pry'
 require 'spec_helper'
 
 describe "Song Basics" do
@@ -45,6 +46,7 @@ describe "Song Basics" do
   end
 
   describe '.create' do
+
     it 'initializes and saves the song' do
       song = Song.create("In an Aeroplane Over the Sea")
 

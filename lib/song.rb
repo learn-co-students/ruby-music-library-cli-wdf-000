@@ -19,11 +19,13 @@ class Song
     @@all.detect {|song| song.name == name}
   end
   def self.create(name)
-    song = self.new(name)
-    @@all << song
+    self.new(name).save
   end
   def genre=(genre)
     @genre = genre
     genre.songs << self if !genre.songs.include?(self)
   end
+  # def artist=(artist)
+  #   artist.add_song(self)
+  # end
 end

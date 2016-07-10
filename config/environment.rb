@@ -2,6 +2,6 @@ require 'bundler'
 Bundler.require
 
 module Concerns
-end
+end 
 
 require_all 'lib'

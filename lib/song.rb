@@ -31,49 +31,37 @@ class Song
   end
 
   def self.destroy_all
-    all.clear
+    @@all.clear
   end
 
   def save
     @@all << self
-    self
   end
 
   def self.create(song_name, artist = nil, genre = nil)
-    new(song_name, artist, genre).save
+    new(song_name, artist, genre).tap{|s| s.save}
   end
 
   def self.new_from_filename(file_name)
-    # binding.pry
     split_name = file_name.split(" - ")
-    song_name = split_name[1]
-    artist_name = split_name[0]
-    genre_name = split_name[2].gsub(".mp3", "")
+    song_name, artist_name, genre_name = split_name[1], split_name[0], split_name[2].gsub(".mp3", "")
 
-    # binding.pry
-
-    new_artist = Artist.find_by_name(artist_name) ||  Artist.new(artist_name)
-    new_genre = Genre.find_by_name(genre_name) || Genre.new(genre_name)
-
-      new_song = self.new(song_name)
-      new_song.artist = new_artist
-      new_song.genre = new_genre
-      new_song
+    new_artist = Artist.find_or_create_by_name(artist_name)
+    new_genre = Genre.find_or_create_by_name(genre_name)
+    self.new(song_name, new_artist, new_genre)
   end
 
   def self.create_from_filename(file_name)
     split_name = file_name.split(" - ")
-    song_name = split_name[1]
-    artist_name = split_name[0]
-    genre_name = split_name[2].gsub(".mp3", "")
+    song_name, artist_name, genre_name = split_name[1], split_name[0], split_name[2].gsub(".mp3", "")
 
     new_artist = Artist.find_or_create_by_name(artist_name) 
-    new_genre = Genre.find_or_create_by_name(genre_name) 
-  
+    new_genre = Genre.find_or_create_by_name(genre_name)
     self.create(song_name, new_artist, new_genre)
   end
-  
+
+  def to_s
+    "#{self.artist.name} - #{self.name} - #{self.genre.name}"
+  end
 end
-
-
 

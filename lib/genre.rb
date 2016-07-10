@@ -1,11 +1,9 @@
 require 'pry'
-require_relative '../lib/concerns/findable'
 
 class Genre
   extend Concerns::Findable
-
-  @@all = []
   attr_accessor :name, :songs
+  @@all = []
 
   def initialize(name)
     @name = name
@@ -26,12 +24,13 @@ class Genre
 
   def save
     @@all << self
-    self
   end
 
   def self.create(name)
-    Genre.new(name).save   
+    new(name).tap {|a| a.save}   
   end
 
-
+  def to_s
+    self.name
+  end
 end

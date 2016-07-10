@@ -30,13 +30,15 @@ class Song
     genre.add_song(self) if !genre.nil?
   end
 
-  # needs refactoring?
+  # needs refactoring
   def self.new_from_filename(file_name)
     song_info = file_name.split(%r{\s-\s|.\w+$})
-    name = song_info[1]
-    artist = Artist.find_or_create_by_name(song_info[0])
-    genre = Genre.find_or_create_by_name(song_info[2])
-    song = Song.new(name, artist, genre)
+    song_name = song_info[1]
+    artist_name = song_info[0]
+    genre_name = song_info[2]
+    artist = Artist.find_or_create_by_name(artist_name)
+    genre = Genre.find_or_create_by_name(genre_name)
+    song = Song.new(song_name, artist, genre)
   end
 
   def self.create_from_filename(file_name)

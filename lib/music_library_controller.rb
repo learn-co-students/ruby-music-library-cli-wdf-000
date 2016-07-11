@@ -10,7 +10,7 @@ class MusicLibraryController
       puts "Welcome to Your Music Library!"
       puts "What would you like to do?"
       input = gets.chomp
-      
+
       case input
       when "list songs"
         songs
@@ -31,7 +31,7 @@ class MusicLibraryController
   private
   def songs
     Song.all.each.with_index(1) do |song, index|
-      puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+      song_string(song, index)
     end
   end
 
@@ -67,7 +67,7 @@ class MusicLibraryController
     input = gets.chomp
     if Artist.find_by_name(input)
       Artist.find_by_name(input).songs.each.with_index do |song, index|
-        puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+        song_string(song, index)
       end
     elsif input == "exit"
       return
@@ -82,7 +82,7 @@ class MusicLibraryController
     input = gets.chomp
     if Genre.find_by_name(input)
       Genre.find_by_name(input).songs.each.with_index do |song, index|
-        puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+        song_string(song, index)
       end
     elsif input == "exit"
       return
@@ -90,5 +90,9 @@ class MusicLibraryController
       puts "Invalid genre. Try again."
       list_genre
     end
+  end
+
+  def song_string(song, index)
+    puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
   end
 end

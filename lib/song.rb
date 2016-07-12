@@ -34,7 +34,7 @@ class Song
   end
 
   def self.create(name, artist = nil, genre = nil)
-    Song.new(name, artist, genre).tap {|song| song.save}
+    new(name, artist, genre).tap {|song| song.save}
   end
 
   def self.find_by_name(name)
@@ -61,5 +61,9 @@ class Song
     artist = Artist.find_or_create_by_name(artist_name)
     genre = Genre.find_or_create_by_name(genre_name)
     self.create(song_name, artist, genre)
+  end
+
+  def to_s
+    "#{self.artist.name} - #{self.name} - #{self.genre.name}"
   end
 end

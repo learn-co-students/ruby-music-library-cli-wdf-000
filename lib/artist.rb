@@ -22,7 +22,7 @@ extend Concerns::Findable
   end
 
   def self.create(name)
-    Artist.new(name).tap {|artist| artist.save}
+    new(name).tap {|artist| artist.save}
   end
 
   def add_song(song)
@@ -33,6 +33,8 @@ extend Concerns::Findable
   def genres
   self.songs.map {|s| s.genre}.uniq
   end
-end
 
-Artist.new("JayZ")
+  def to_s
+    self.name
+  end
+end

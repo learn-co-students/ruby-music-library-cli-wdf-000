@@ -29,4 +29,8 @@ extend Concerns::Findable
     self.songs.collect {|s| s.artist}.uniq
   end
 
+  def to_s
+    self.name
+  end
+
 end

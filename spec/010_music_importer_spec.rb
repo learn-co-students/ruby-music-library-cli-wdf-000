@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "MusicImporter" do
   describe '#intialize' do
@@ -45,6 +46,7 @@ describe 'Making Songs from filenames' do
       genre = Genre.create("dance")
 
       song = Song.new_from_filename("Thundercat - For Love I Come - dance.mp3")
+      # binding.pry
       expect(song.artist).to eq(artist)
       expect(song.genre).to eq(genre)
     end

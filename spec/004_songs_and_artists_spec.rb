@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Songs and Artists" do
   context 'Artists have many songs' do
@@ -62,7 +63,7 @@ describe "Songs and Artists" do
         song.artist = artist
 
         expect(song).to_not receive(:artist=)
-
+        # binding.pry
         artist.add_song(song)
       end
 
@@ -75,6 +76,7 @@ describe "Songs and Artists" do
 
         expect(artist.songs).to include(song)
         expect(artist.songs.size).to eq(1)
+
       end
     end
 
@@ -84,7 +86,7 @@ describe "Songs and Artists" do
         artist = Artist.new("Neutral Milk Hotel")
 
         expect(artist).to receive(:add_song)
-
+              # binding.pry
         song.artist = artist
       end
     end

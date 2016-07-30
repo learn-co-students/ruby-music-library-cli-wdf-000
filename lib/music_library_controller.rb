@@ -46,8 +46,6 @@ class MusicLibraryController
     end
   end
 
-end
-
   def artists
     Artist.all.each do |artist|
       puts artist.name
@@ -96,4 +94,6 @@ end
       end
     end
   end
+
+end # end of class definition
 

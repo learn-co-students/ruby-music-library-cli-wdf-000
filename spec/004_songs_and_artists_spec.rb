@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Songs and Artists" do
   context 'Artists have many songs' do
@@ -23,7 +24,6 @@ describe "Songs and Artists" do
         song = Song.new("In an Aeroplane Over the Sea")
         artist = Artist.new("Neutral Milk Hotel")
         song.artist = artist
-
         expect(song.artist).to eq(artist)
       end
 

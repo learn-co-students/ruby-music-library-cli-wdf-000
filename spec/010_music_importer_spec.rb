@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "MusicImporter" do
-  describe '#intialize' do
+  describe '#initialize' do
     it 'accepts a file path to parse mp3 files from' do
       test_music_path = "./spec/fixtures/mp3s"
       music_importer = MusicImporter.new(test_music_path)
@@ -82,5 +82,6 @@ describe "MusicImporter#import" do
 
     expect(Song.find_by_name("Green Aisles").artist.name).to eq("Real Estate")
     expect(Song.find_by_name("Green Aisles").artist.songs.size).to eq(2)
+    # binding.pry
   end
 end

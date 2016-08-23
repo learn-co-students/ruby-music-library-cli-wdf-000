@@ -50,6 +50,7 @@ describe 'Music Library CLI' do
     output = capture_puts {run_file("./bin/musiclibrary")}
 
     expect(output).to include("Playing Action Bronson - Larry Csonka - indie")
+        
   end
 
   it 'allows a user to list an artist\'s songs' do

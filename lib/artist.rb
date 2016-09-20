@@ -8,6 +8,7 @@ class Artist
   attr_accessor :name, :songs
   #reader .name
   #writer .name=
+  #ex: song.artist.name = artist_name
 
   @@all = []
 

@@ -47,6 +47,7 @@ class Song
   end
 
   def genre=(genre)
+    #a reciprocal belongs to
     #First be a nice object and tell genre that it has a new song
     #genre.songs << self
     genre.add_song(self)

@@ -1,4 +1,7 @@
 class Genre
+  #Builder Pattern
+  #Mixing Pattern
+  #Module Pattern
 
   extend Concerns::Findable
   #extend Persistable::ClassMethods
@@ -38,7 +41,9 @@ class Genre
     end
   end
 
-  def artists
+  def artists #It looks like a reader but its more complicated, establishes has many through relationship
     self.songs.map{|song| song.artist}.uniq
+    #@CLI_video_review
+    #@songs.map{|s| s.artist}.uniq
   end
 end

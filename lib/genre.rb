@@ -34,7 +34,7 @@ class Genre
 
   def add_song(song)
     if !songs.include?(song)
-      @songs << song
+      @songs << song #unless genre.songs.include(song)
     end
   end
 

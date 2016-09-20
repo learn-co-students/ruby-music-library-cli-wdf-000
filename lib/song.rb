@@ -47,8 +47,11 @@ class Song
   end
 
   def genre=(genre)
-    @genre = genre
+    #First be a nice object and tell genre that it has a new song
+    #genre.songs << self
     genre.add_song(self)
+    #Assign that genre to myself
+    @genre = genre
   end
 
   def self.new_from_filename(filename)

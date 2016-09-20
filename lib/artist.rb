@@ -1,8 +1,13 @@
 class Artist
 
   extend Concerns::Findable
+  #extend Persistable::ClassMethods
+  #extend Nameable::ClassMethods
+  #include Persistable::InstanceMethods
 
   attr_accessor :name, :songs
+  #reader .name
+  #writer .name=
 
   @@all = []
 

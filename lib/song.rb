@@ -1,7 +1,10 @@
 require 'pry'
 class Song
 
-  extend Concerns::Findable
+  extend Concerns::Findable #take all of the methods in the Findable module and adds them to class methods
+  #extend Persistable::ClassMethods
+  #extend Nameable::ClassMethods
+  #include Persistable::InstanceMethods
 
   attr_accessor :name, :artist, :genre
 
@@ -24,7 +27,7 @@ class Song
     @@all << self
   end
 
-  def self.all
+  def self.all #Class Reader
     @@all
   end
 

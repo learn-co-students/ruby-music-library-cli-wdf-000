@@ -2,4 +2,16 @@
 
 require_relative '../config/environment'
 
+# puts "Welcome to YAMP - Your Awesome Music Player"
+# puts "-------------------------------------------"
+# puts
+# puts "Please enter one of the following commands:"
+# puts "- exit           - Exits the program"
+# puts "- list songs     - Lists all availabale songs"
+# puts "- list artists   - Lists all artists"
+# puts "- list genres    - Lists all genres"
+# puts "- play song      - Play song by track number"
+# puts "- list artist    - Enter an artist name to get a list of his/her songs"
+# puts "- list genre     - Enter a genre to get all songs in that genre"
+# puts
 MusicLibraryController.new.call
